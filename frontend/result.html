@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container result-page">
+        <h2>Diagnostic Assessment Result</h2>
+        
+        <div class="result-card {{ status_class }}">
+            <h3>{{ result }}</h3>
+            <p>Calculated Risk Index: <strong>{{ score }}</strong></p>
+        </div>
+
+        <h3 class="section-title">Submitted Details Summary</h3>
+        <div class="summary-grid">
+            {% for key, value in data.items() %}
+                <div class="summary-item">
+                    <span class="label">{{ key }}:</span>
+                    <span class="val">{{ value }}</span>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="action-links">
+            <a href="/" class="btn back-btn">← Make Another Prediction</a>
+        </div>
+    </div>
+</body>
+</html>
